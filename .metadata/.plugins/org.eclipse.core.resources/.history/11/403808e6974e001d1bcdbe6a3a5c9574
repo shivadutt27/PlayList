@@ -1,0 +1,42 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Album {
+	
+	private List<Song> songs;
+	
+	public Album()
+	{
+		this.songs = new ArrayList<>();
+	}
+	
+	public int findSong(Song song)
+	{
+		int foundSong = this.songs.indexOf(song);
+		return foundSong;
+	}
+	
+	public boolean addSong(Song song)
+	{
+		
+		if(this.songs.isEmpty() || findSong(song)<0)
+		{
+			return this.songs.add(song);
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	public List<Song> getSongs()
+	{
+		return this.songs;
+	}
+	
+	
+
+}

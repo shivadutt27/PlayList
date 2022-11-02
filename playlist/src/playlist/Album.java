@@ -1,0 +1,104 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/* 
+ 1. This class instantiates the Album object 
+ 2. Album Objects contains the Arraylist of songs
+ 3. This class provides the method to add, read, update songs 
+ */
+public class Album {
+	
+	private String albumName;
+	private Song song;
+	private ArrayList<Song> songs;
+	
+	public Album(String albumName, Song song)
+	{
+		this.albumName = albumName;
+		this.song =song;
+		this.songs = new ArrayList<Song>();
+	}
+
+	public Song getSong() {
+		return song;
+	}
+
+	public void setSong(Song song) {
+		this.song = song;
+	}
+
+	public String getAlbumName() {
+		return albumName;
+	}
+
+	public void setAlbumName(String albumName) {
+		this.albumName = albumName;
+	}
+
+	public ArrayList<Song> getSongs() {
+		return songs;
+	}
+
+	public void setSongs(ArrayList<Song> songs) {
+		this.songs = songs;
+	}
+	
+	// 1. Lets create a private find song method which we will use later in adding and updating songs
+	
+	public int findSong(Song song)
+	{
+		return this.songs.indexOf(song);
+	}
+	
+	// 2. Lets create an addSong public method which we will use to add songs 
+	
+	public boolean addSong(Song song)
+	{
+		int foundSong = findSong(song);
+		System.out.println("foundSong is "+foundSong);
+		boolean flag = false;
+		if(foundSong<0) {
+			this.songs.add(song);
+			flag = true;
+		}else {
+			System.out.println("Song is already Present");
+		}
+		return flag;
+	}
+
+	// 3. Lets create a method to print all the songs 
+	
+	public void printSongs()
+	{
+		int i=0;
+		if(this.songs.isEmpty())
+		{
+			System.out.println("No Songs Presnt in "+this.albumName+" Album yet");
+		}
+		for(Song oneSong: songs)
+		{
+			i++;
+			System.out.println(i+" "+oneSong.getTitle());
+		}
+	}
+	
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

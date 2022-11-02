@@ -1,0 +1,89 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/* 
+ 1. This class instantiates the Album object 
+ 2. Album Objects contains the Arraylist of songs
+ 3. This class provides the method to add, read, update songs 
+ */
+public class Album {
+	
+	private String albumName;
+	private ArrayList<Song> songs;
+	
+	public Album(String albumName)
+	{
+		this.albumName = albumName;
+		this.songs = new ArrayList<Song>();
+	}
+
+	public String getAlbumName() {
+		return albumName;
+	}
+
+	public void setAlbumName(String albumName) {
+		this.albumName = albumName;
+	}
+
+	public ArrayList<Song> getSongs() {
+		return songs;
+	}
+
+	public void setSongs(ArrayList<Song> songs) {
+		this.songs = songs;
+	}
+	
+	// 1. Lets create a private find song method which we will use later in adding and updating songs
+	
+	private int findSong(Song song)
+	{
+		return songs.indexOf(song);
+	}
+	
+	// 2. Lets create an addSong public method which we will use to add songs 
+	
+	public boolean addSong(Song song)
+	{
+		boolean flag = false;
+		if(this.songs.equals(null) || findSong(song) < 0)
+		{
+			songs.add(song);
+			flag =true;
+		}else {
+			System.out.println("Song "+ song + "already present");
+		}
+		return flag;
+	}
+
+	// 3. Lets create a method to print all the songs 
+	
+	public void printSongs()
+	{
+		int i=0;
+		for(Song oneSong: songs)
+		{
+			i++;
+			System.out.println(i+" "+oneSong.getTitle());
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

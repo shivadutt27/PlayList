@@ -1,0 +1,46 @@
+package playlist;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Song[] songArr = new Song[3];
+		
+		Album album1 = new Album("bollywood");
+		Album album2 = new Album ("Coding Songs");
+		
+		Song song1 = new Song("Hanuman Chalisa", "2 mins");
+		Song song2 = new Song ("Hututu","3 mins");
+		Song song3 = new Song ("Marjawan","2 mins");
+		
+		Song song4 = new Song("Cool green", "8 mins");
+		Song song5 = new Song("Cool blue", "9 mins");
+		
+
+
+		for(int i=1;i<4;i++)
+		{
+
+
+			try
+			{
+				String songStr = "song"+i;
+				Object obj = (Object) songStr;
+				Song song = (Song) obj;
+				album1.addSong(song);
+				System.out.println("Song Added");
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				System.out.println(e);
+			}
+		}
+		
+		
+		album1.printSongs();
+
+	}
+
+}

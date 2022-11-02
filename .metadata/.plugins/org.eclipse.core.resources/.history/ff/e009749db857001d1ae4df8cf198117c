@@ -1,0 +1,23 @@
+package playlist;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Album album1 = new Album("bollywood");
+		Album album2 = new Album ("Hollywood");
+		
+		Song song1 = new Song("Hanuman Chalisa", "2 mins");
+		
+		album1.addSong(song1);
+		album1.addSong(song1);
+		
+		album1.printSongs();
+		
+		album2.printSongs();
+
+
+	}
+
+}

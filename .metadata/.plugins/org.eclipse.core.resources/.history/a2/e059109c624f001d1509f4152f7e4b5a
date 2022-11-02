@@ -1,0 +1,16 @@
+package playlist;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Album album1 = new Album("bollywood","shiva songs", "2 mins");
+		Album album2 = new Album ("Hollywood", "rap songs", "3 mins");
+		
+		album1.add
+
+
+	}
+
+}

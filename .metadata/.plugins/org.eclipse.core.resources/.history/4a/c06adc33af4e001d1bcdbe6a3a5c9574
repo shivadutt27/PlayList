@@ -1,0 +1,65 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Album {
+	
+	private String albumName;
+	private ArrayList<Song> songs;
+	private ArrayList<Album> albums;
+	
+	public Album(String albumName)
+	{
+		this.albumName = albumName;
+		new ArrayList<Song>();
+		new ArrayList<Album>();
+		this.albums.add(songs);
+	}
+	
+	private int findAlbum(Album album) {return albums.indexOf(album);}
+	
+	private int findSong(Song song) {return songs.indexOf(song);}
+	
+	public boolean addSongs(Song song)
+	{
+		if(findSong(song) >=0)
+		{
+			System.out.println("Song "+ song + " already present");
+		}else {
+			songs.add(song);
+			return true;
+		}
+	}
+
+	public String getAlbumName() {
+		return albumName;
+	}
+
+	public void setAlbumName(String albumName) {
+		this.albumName = albumName;
+	}
+
+	public ArrayList<Song> getSongs() {
+		return songs;
+	}
+
+	public void setSongs(ArrayList<Song> songs) {
+		this.songs = songs;
+	}
+
+	public ArrayList<Album> getAlbums() {
+		return albums;
+	}
+
+	public void setAlbums(ArrayList<Album> albums) {
+		this.albums = albums;
+	}
+	
+	
+	
+	
+	
+	
+
+}

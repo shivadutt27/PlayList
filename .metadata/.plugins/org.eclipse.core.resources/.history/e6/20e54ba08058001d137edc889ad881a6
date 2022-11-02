@@ -1,0 +1,26 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class PlayList {
+
+	private List<Album> albums;
+	
+	private LinkedList<Song> playListSongs;
+	
+	private Song song;
+	
+	public PlayList(Song song)
+	{
+		this.song = song;
+		this.albums = new ArrayList<>();
+		this.playListSongs = new LinkedList<>();
+	}
+	
+	
+	
+	
+	
+}

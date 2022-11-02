@@ -1,0 +1,25 @@
+package playlist;
+
+import java.util.Scanner;
+
+public class test {
+
+	private static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+		//1. Printing statements for User
+		
+		System.out.println("Please Choose your input \n"
+				+ "0 : List all songs in the playList \n"
+				+ "1: Add new Song to the PlayList \n"
+				+ "2: Forward Song \n"
+				+ "3: Skip to previous song \n"
+				+ "4: Replay the song \n"
+				+ "5: Quit \n ");
+
+
+	}
+
+}

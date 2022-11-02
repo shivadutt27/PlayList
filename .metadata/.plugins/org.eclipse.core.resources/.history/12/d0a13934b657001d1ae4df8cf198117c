@@ -1,0 +1,25 @@
+package playlist;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Album album1 = new Album("bollywood");
+		Album album2 = new Album ("Hollywood");
+		
+		album1.addSong(new Song("Hanuman Chalisa", "2 mins"));
+		album1.addSong(new Song("hey ram","1 min"));
+		album1.addSong(new Song("Hanuman Chalisa", "2 mins"));
+		
+		int foundSong = album1.findSong(new Song("Hanuman Chalisa", "2 mins"));
+		System.out.println(foundSong);
+		
+		album1.printSongs();
+		
+		album2.printSongs();
+
+
+	}
+
+}

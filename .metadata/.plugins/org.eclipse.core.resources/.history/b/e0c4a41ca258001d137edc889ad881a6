@@ -1,0 +1,90 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class PlayList {
+
+	private List<Album> albums;
+	
+	private LinkedList<Song> playListSongs;
+	
+	private Song song;
+	
+	public PlayList()
+	{
+		this.song = song;
+		this.albums = new ArrayList<>();
+		this.playListSongs = new LinkedList<>();
+	}
+
+	public List<Album> getAlbums() {
+		return albums;
+	}
+
+	public void setAlbums(List<Album> albums) {
+		this.albums = albums;
+	}
+
+	public LinkedList<Song> getPlayListSongs() {
+		return playListSongs;
+	}
+
+	public void setPlayListSongs(LinkedList<Song> playListSongs) {
+		this.playListSongs = playListSongs;
+	}
+
+	public Song getSong() {
+		return song;
+	}
+
+	public void setSong(Song song) {
+		this.song = song;
+	}
+	
+	
+	
+  //1. Finding the Songs in the Albums
+	
+	
+	public int findSongInList(Song song)
+	{
+		int foundSong = -1;
+		for(Album oneAlbum: this.albums)
+		{
+			foundSong = oneAlbum.findSong(song);
+		}
+		return foundSong;
+	}
+	
+  // Adding a song in the playlist
+	
+	public boolean addSongInList(Song song)
+	{
+		boolean flag = false;
+		
+		if(findSongInList(song)<0)
+		{
+			this.playListSongs.add(song);
+			System.out.println(song+" Song is added to the playlist");
+			flag = true;
+		}
+		return flag;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
