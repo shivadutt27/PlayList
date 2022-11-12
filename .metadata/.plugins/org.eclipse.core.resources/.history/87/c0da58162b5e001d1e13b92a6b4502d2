@@ -1,0 +1,21 @@
+package playlist;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Album album = new Album("Coding Trance", "Shivam");
+		
+		LinkedList<Song> playList = new LinkedList<Song>();
+		
+		album.addSong("Night Programming", 2.0);
+		album.addSong("Blue Coding", 4.0);
+		album.addSong("Green Room", 6.0);
+		
+		album.addToPlayList(0, null)
+		
+
+	}
+
+}

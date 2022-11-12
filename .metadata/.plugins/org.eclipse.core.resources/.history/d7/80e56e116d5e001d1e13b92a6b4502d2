@@ -1,0 +1,64 @@
+package playlist;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+	
+	private static Scanner sc = new Scanner(System.in);
+	
+	
+	private static int printMenu()
+	{
+		System.out.println("Enter your choice \n"
+				+ "0: Print List of songs \n"
+				+ "1: Skip to next song \n"
+				+ "2: Skip to backward song \n"
+				+ "3: Replay Song  \n"
+				+ "4:  Quit Menu \n");
+		
+		int getInput = sc.nextInt();
+		return getInput;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+		int getInput = printMenu();
+		
+		switch(getInput)
+		{
+		case 0:
+			System.out.println("Printing playList");
+			break;
+		case 1:
+			System.out.println("Playing next Song");
+			break;
+		case 2:
+			System.out.println("Playing previous song");
+			break;
+		case 3:
+			System.out.println("Replaying Song");
+			break;
+		case 4:
+			System.out.println("Quitting");
+			break;
+			
+		}
+		
+//		Album album = new Album("Coding Trance", "Shivam");
+//		
+//		LinkedList<Song> playList = new LinkedList<Song>();
+//		
+//		album.addSong("Night Programming", 2.0);
+//		album.addSong("Blue Coding", 4.0);
+//		album.addSong("Green Room", 6.0);
+//		
+//		album.addToPlayList(0, playList);
+//		
+//		album.addToPlayList(3, playList);
+		
+
+	}
+
+}

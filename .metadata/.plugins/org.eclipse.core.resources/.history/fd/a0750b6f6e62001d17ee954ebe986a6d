@@ -1,0 +1,71 @@
+package playlist;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+public class Album {
+    // write code here
+    private String name;
+    private String artist;
+    private ArrayList<Song> songs;
+    
+    public Album(String name, String artist)
+    {
+        this.name = name;
+        this.artist = artist;
+        this.songs = new ArrayList<Song>();
+    }
+    
+    public boolean addSong(String songTitle, double songDuration)
+    {
+        Song foundSong = findSong(songTitle);
+        if(foundSong== null)
+        {
+            this.songs.add(new Song(songTitle,songDuration));
+            return true;
+        }
+        return false;
+    }
+    
+    private Song findSong(String songTitle)
+    {
+        Song foundSong = null;
+        for(Song oneSong : this.songs)
+        {
+            if(oneSong.getTitle().equals(songTitle))
+            {
+                foundSong = oneSong;
+            }
+        }
+        return foundSong;
+    }
+    
+    
+    public boolean addToPlayList(int trackNumber, LinkedList playList)
+    {
+        int indexInArray = trackNumber-1;
+        Song foundSong = null;
+        for(int i = 0; i< this.songs.size(); i++)
+        {
+           if(songs.get(i) == songs.get(indexInArray))
+           {
+               foundSong = songs.get(i);
+           }
+        }
+         if(foundSong != null)
+         {
+             playList.add(foundSong);
+             return true;
+         }
+         return false;
+    }
+    
+    public boolean addToPlayList(String songTitle, LinkedList playList)
+    {
+        if(!findSong(songTitle).equals(null))
+        {
+            playList.add(findSong(songTitle));
+            return true;
+        }
+        return false;
+    }
+}

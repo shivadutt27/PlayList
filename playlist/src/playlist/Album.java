@@ -1,104 +1,78 @@
 package playlist;
 
 import java.util.ArrayList;
-import java.util.List;
-
-
-/* 
- 1. This class instantiates the Album object 
- 2. Album Objects contains the Arraylist of songs
- 3. This class provides the method to add, read, update songs 
- */
+import java.util.LinkedList;
 public class Album {
-	
-	private String albumName;
-	private Song song;
-	private ArrayList<Song> songs;
-	
-	public Album(String albumName, Song song)
-	{
-		this.albumName = albumName;
-		this.song =song;
-		this.songs = new ArrayList<Song>();
-	}
-
-	public Song getSong() {
-		return song;
-	}
-
-	public void setSong(Song song) {
-		this.song = song;
-	}
-
-	public String getAlbumName() {
-		return albumName;
-	}
-
-	public void setAlbumName(String albumName) {
-		this.albumName = albumName;
-	}
-
-	public ArrayList<Song> getSongs() {
-		return songs;
-	}
-
-	public void setSongs(ArrayList<Song> songs) {
-		this.songs = songs;
-	}
-	
-	// 1. Lets create a private find song method which we will use later in adding and updating songs
-	
-	public int findSong(Song song)
-	{
-		return this.songs.indexOf(song);
-	}
-	
-	// 2. Lets create an addSong public method which we will use to add songs 
-	
-	public boolean addSong(Song song)
-	{
-		int foundSong = findSong(song);
-		System.out.println("foundSong is "+foundSong);
-		boolean flag = false;
-		if(foundSong<0) {
-			this.songs.add(song);
-			flag = true;
-		}else {
-			System.out.println("Song is already Present");
-		}
-		return flag;
-	}
-
-	// 3. Lets create a method to print all the songs 
-	
-	public void printSongs()
-	{
-		int i=0;
-		if(this.songs.isEmpty())
-		{
-			System.out.println("No Songs Presnt in "+this.albumName+" Album yet");
-		}
-		for(Song oneSong: songs)
-		{
-			i++;
-			System.out.println(i+" "+oneSong.getTitle());
-		}
-	}
-	
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    // write code here
+    private String name;
+    private String artist;
+    private ArrayList<Song> songs;
+    
+    public Album(String name, String artist)
+    {
+        this.name = name;
+        this.artist = artist;
+        this.songs = new ArrayList<Song>();
+    }
+    
+    public boolean addSong(String songTitle, double songDuration)
+    {
+        Song foundSong = findSong(songTitle);
+        if(foundSong== null)
+        {
+            this.songs.add(new Song(songTitle,songDuration));
+            return true;
+        }
+        return false;
+    }
+    
+    private Song findSong(String songTitle)
+    {
+        Song foundSong = null;
+        for(Song oneSong : this.songs)
+        {
+            if(oneSong.getTitle().equals(songTitle))
+            {
+                foundSong = oneSong;
+            }
+        }
+        return foundSong;
+    }
+    
+    
+    public boolean addToPlayList(int trackNumber, LinkedList playList)
+    {
+        int indexInArray = trackNumber-1;
+        Song foundSong = null;
+        
+        if(indexInArray > songs.size() || indexInArray<0)
+        {
+        	System.out.println("Song is not present");
+        	return false;
+        }
+        for(int i = 0; i< this.songs.size(); i++)
+        {
+           if(songs.get(i) == songs.get(indexInArray))
+           {
+               foundSong = songs.get(i);
+           }
+        }
+         if(foundSong != null)
+         {
+             playList.add(foundSong);
+             System.out.println("Song successfully added ");
+             return true;
+         }
+         return false;
+    }
+    
+    public boolean addToPlayList(String songTitle, LinkedList playList)
+    {
+        if(findSong(songTitle) != null)
+        {
+            playList.add(findSong(songTitle));
+            return true;
+        }
+        return false;
+    }
 }
