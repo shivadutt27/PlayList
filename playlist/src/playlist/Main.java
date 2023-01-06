@@ -47,67 +47,80 @@ public class Main {
 		albums.get(1).addToPlayList(3, playList);
 		albums.get(1).addToPlayList(2, playList);
 		albums.get(1).addToPlayList(24, playList);  // There is no track 24
-		
-		System.out.println("Enter your choice below: \n"
-				+ "0: Quit \n"
-				+ "1: Skip Forward \n"
-				+ "2: Skip Backward \n"
-				+ "3: Replay Song \n"
-				+ "4: Main Menu");
-		
-		int getUserInput = sc.nextInt();
+
 		boolean quit = false;
-		switch(getUserInput)
+		boolean forward = false;
+		while(!quit)
 		{
-		
-		case 0: System.out.println("Press 0 to quit \n");
-		int getInput = sc.nextInt();
-		if(getInput == 0)
-		{
+			System.out.println("Enter your choice below: \n"
+					+ "0: Quit \n"
+					+ "1: Skip Forward \n"
+					+ "2: Skip Backward \n"
+					+ "3: Replay Song \n"
+					+ "4: Main Menu");
+			
+			int getUserInput = sc.nextInt();
+			
+			switch(getUserInput)
+			{
+			
+			case 0: System.out.println("Quitting Menu!");
 			quit = true;
+			break;
+			
+			case 1: System.out.println("skipping forward \n");
+			if(!forward)
+			{
+				
+			}
+			skipForward();
+			break;
+			
+			case 2: System.out.println("skipping backward \n");
+			break;
+			
+			case 3: System.out.println("Replaying Song \n");
+			break;
+			
+			case 4: System.out.println("Main Menu \n");
+			break;
+			
+			default:
+				System.out.println("Please Provide the correct input");
+			
+			
+			}
+			
 		}
-		break;
 		
-		case 1: System.out.println("skipping forward \n");
-		skipForward();
-		break;
-		
-		case 2: System.out.println("skipping backward \n");
-		break;
-		
-		case 3: System.out.println("Replaying Song \n");
-		break;
-		
-		case 4: System.out.println("Main Menu \n");
-		break;
-		
-		default:
-			System.out.println("Please Provide the correct input");
-		
-		
-		}
 
 	
 		
 	}
 	
-	public static String skipForward()
+	public static void printPlayList()
 	{
-		String songString;
-		for(Album oneAlbum : albums)
+		ListIterator songsIterator = playList.listIterator();
+		while(songsIterator.hasNext())
 		{
-			oneAlbum.
+			System.out.println(songsIterator.next().toString());
 		}
+	}
+	
+
+	
+	public static void skipForward()
+	{
+		boolean forward = true;
 		ListIterator<Song> songsIterator = playList.listIterator();
-		if(songsIterator.hasNext())
+		if(!forward)
 		{
-			Song nextSong = songsIterator.next();
-			songString = nextSong.toString();
-			
-		}else {
-			songString = "There is no next song";
+			if(songsIterator.hasNext())
+			{	
+				forward = true;
+			}
 		}
-		return songString;
+		System.out.println("Now Playing " + songsIterator.next().toString());
 	}
 
 }
